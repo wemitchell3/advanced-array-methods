@@ -1,29 +1,60 @@
-console.log(businesses)
-
 const outEl = document.querySelector("#output")
 
-outEl.innerHTML += "<h1>Purchasing Agents</h1>";
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+            console.log(keyPressEvent)
+            /* WHEN  USER PRESSES ENTER, FIND MATCHING BUSINESS */
+            const foundBusiness = businesses.find(
+                business =>
+                    business.purchasingAgent.nameFirst.includes(keyPressEvent.target.value)
+                    ||  business.purchasingAgent.nameLast.includes(keyPressEvent.target.value)
+            );
+
+            outEl.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+                <section>
+                ${foundBusiness.purchasingAgent.nameFirst},
+                ${foundBusiness.purchasingAgent.nameLast}
+                </section>
+            `;
+        }
+    });
+
+// outEl.innerHTML += "<h1>Purchasing Agents</h1>";
 
 /*
     Using map(), you extract the purchasing agent object
     from each business and store it in a new array
 */
-const agents = businesses.map(business => {
-        return {
-            fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
-            companyName: business.companyName,
-            phoneNumber: business.phoneWork
-        }
-    })
+// const agents = businesses.map(business => {
+//         return {
+//             fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
+//             companyName: business.companyName,
+//             phoneNumber: business.phoneWork
+//         }
+//     })
 
-console.table(agents)
+// console.table(agents)
 
-agents.forEach(agent => {
-    outEl.innerHTML += `<h2>${agent.fullName}</h2>`;
-    outEl.innerHTML += `<h2>${agent.companyName}</h2>`;
-    outEl.innerHTML += `<h2>${agent.phoneNumber}</h2>`;
-    outEl.innerHTML += "<hr/>";
-});
+// agents.forEach(agent => {
+//     outEl.innerHTML += `<h2>${agent.fullName}</h2>`;
+//     outEl.innerHTML += `<h2>${agent.companyName}</h2>`;
+//     outEl.innerHTML += `<h2>${agent.phoneNumber}</h2>`;
+//     outEl.innerHTML += "<hr/>";
+// });
 
 
 // outEl.innerHTML = "<h1>Active Businesses</h1>"
