@@ -1,145 +1,251 @@
-const outEl = document.querySelector("#output")
+let customers = [
+    {
+      "location": {
+        "street": "Old York Road",
+        "state": "Delaware",
+        "country": "Qatar",
+        "city": "Irma"
+      },
+      "last_name": "Herzog",
+      "job": {
+        "position": "Senior Intranet Assistant",
+        "phone_number": "1-035-577-1574",
+        "department": "sales",
+        "company": "Ganjazamlux"
+      },
+      "first_name": "Johnson",
+      "contacts": {
+        "mobile": "102.596.5226",
+        "email": [
+          "rerum@outlook.com",
+          "possimus_abraham@hotmail.com",
+          "yoshiko@gmail.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Maple Street",
+        "state": "Wyoming",
+        "country": "Uzbekistan",
+        "city": "Ortonville"
+      },
+      "last_name": "Stehr",
+      "job": {
+        "position": "Dynamic Quality Administrator",
+        "phone_number": "555.173.9685",
+        "department": "customer service support",
+        "company": "Hating"
+      },
+      "first_name": "Rogelio",
+      "contacts": {
+        "mobile": "1-746-406-3132",
+        "email": [
+          "saw_savannah@yahoo.com",
+          "this46@outlook.com",
+          "quidem_shayna@hotmail.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Cleveland Avenue",
+        "state": "South Carolina",
+        "country": "Lebanon",
+        "city": "New Salem"
+      },
+      "last_name": "McDermott",
+      "job": {
+        "position": "Human Research Architect",
+        "phone_number": "1-120-949-9685",
+        "department": "accounting",
+        "company": "Keyzazim"
+      },
+      "first_name": "Herbert",
+      "contacts": {
+        "mobile": "705.404.8808",
+        "email": [
+          "him_joshuah@yahoo.com",
+          "neha@outlook.com",
+          "tail@gmail.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Route 30",
+        "state": "Pennsylvania",
+        "country": "Nauru",
+        "city": "Brocton"
+      },
+      "last_name": "Buckridge",
+      "job": {
+        "position": "National Usability Technician",
+        "phone_number": "215.951.1943",
+        "department": "research and development",
+        "company": "Dongsolofind"
+      },
+      "first_name": "Keagan",
+      "contacts": {
+        "mobile": "665.835.9595",
+        "email": [
+          "trade_hunter@yahoo.com",
+          "ut@hotmail.com",
+          "throw@gmail.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Arch Street",
+        "state": "Illinois",
+        "country": "Guam",
+        "city": "Stroud"
+      },
+      "last_name": "Barton",
+      "job": {
+        "position": "Dynamic Directives Analyst",
+        "phone_number": "1-069-596-0831 x15766",
+        "department": "operations",
+        "company": "Zoomruntam"
+      },
+      "first_name": "Kenton",
+      "contacts": {
+        "mobile": "(972) 219-3017",
+        "email": [
+          "alberto@outlook.com",
+          "june@gmail.com",
+          "rafaela@hotmail.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Race Street",
+        "state": "Nebraska",
+        "country": "Republic of Saudi Arabia",
+        "city": "Guelph"
+      },
+      "last_name": "Mitchell",
+      "job": {
+        "position": "Principal Implementation Specialist",
+        "phone_number": "713-818-2034 x23626",
+        "department": "IT support",
+        "company": "Hot-tom"
+      },
+      "first_name": "Hattie",
+      "contacts": {
+        "mobile": "(144) 533-6049",
+        "email": [
+          "river32@yahoo.com",
+          "class65@gmail.com",
+          "scale_oda@outlook.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Prospect Avenue",
+        "state": "Massachusetts",
+        "country": "Fiji",
+        "city": "Hachita"
+      },
+      "last_name": "Rohan",
+      "job": {
+        "position": "Customer Identity Producer",
+        "phone_number": "110-592-6773 x3160",
+        "department": "production",
+        "company": "Zapware"
+      },
+      "first_name": "Clotilde",
+      "contacts": {
+        "mobile": "005.981.1039",
+        "email": [
+          "winter@outlook.com",
+          "kyla@gmail.com",
+          "boy@yahoo.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Lexington Court",
+        "state": "Georgia",
+        "country": "Tokelau",
+        "city": "Blackwater"
+      },
+      "last_name": "Kuphal",
+      "job": {
+        "position": "Direct Division Executive",
+        "phone_number": "(763) 900-2576 x943",
+        "department": "operations",
+        "company": "Inchdonin"
+      },
+      "first_name": "Marcelle",
+      "contacts": {
+        "mobile": "1-511-518-7079",
+        "email": [
+          "try@outlook.com",
+          "part73@yahoo.com",
+          "mother5@hotmail.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Cobblestone Court",
+        "state": "Minnesota",
+        "country": "Saint Helena, Ascension and Tristan da Cunha",
+        "city": "North Stonington"
+      },
+      "last_name": "Thompson",
+      "job": {
+        "position": "Product Response Facilitator",
+        "phone_number": "(948) 430-6348 x4290",
+        "department": "communication",
+        "company": "Goldcare"
+      },
+      "first_name": "Briana",
+      "contacts": {
+        "mobile": "714-922-9557",
+        "email": [
+          "randi@outlook.com",
+          "christian@yahoo.com",
+          "tempore_gilda@hotmail.com"
+        ]
+      }
+    },
+    {
+      "location": {
+        "street": "Mill Street",
+        "state": "Kentucky",
+        "country": "Ireland",
+        "city": "Crystal"
+      },
+      "last_name": "Weimann",
+      "job": {
+        "position": "Future Web Representative",
+        "phone_number": "693-204-7849 x4251",
+        "department": "legal",
+        "company": "K-touch"
+      },
+      "first_name": "Brittany",
+      "contacts": {
+        "mobile": "1-327-084-4643",
+        "email": [
+          "she@hotmail.com",
+          "quam3@gmail.com",
+          "recusandae23@outlook.com"
+        ]
+      }
+    }
+  ];
+  const container = document.querySelector("#output")
 
-// businesses.forEach(business => {
-//     /* CALCULATE ORDER SUMMARY */
-//     let totalOrders = 0
-//     business.orders.forEach(order => totalOrders += order)
-
-const monthlyRainfall = [23, 13, 27, 20, 20, 31, 33, 26, 19, 12, 14, 12, 10]
-
-const totalRainfall = monthlyRainfall.reduce((currentTotal, nextValue) => currentTotal += nextValue,0)
-
-console.log(totalRainfall)
-
-const words = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
-
-const sentence = words.reduce((currentWords, nextWord) => currentWords + " " + nextWord)
-
-console.log(sentence)
-
-//     businesses.forEach(business => {
-//     /* CALCULATE ORDER SUMMARY */
-// let totalOrders = business.orders.reduce(
-//     (currentTotal, nextValue) => currentTotal += nextValue,
-//     0
-// )
-
-//     outEl.innerHTML += `
-//         <h2>
-//             ${business.companyName}
-//             ($${totalOrders.toFixed(2)})
-//         </h2>
-//         <section>
-//             ${business.addressFullStreet}
-//         </section>
-//         <section>
-//             ${business.addressCity},
-//             ${business.addressStateCode}
-//             ${business.addressZipCode}
-//         </section>
-//     `;
-//     outEl.innerHTML += "<hr/>";
-// });
-
-// document
-//     .querySelector("#companySearch")
-//     .addEventListener("keypress", keyPressEvent => {
-//         if (keyPressEvent.charCode === 13) {
-//             console.log(keyPressEvent)
-//             /* WHEN  USER PRESSES ENTER, FIND MATCHING BUSINESS */
-//             const foundBusiness = businesses.find(
-//                 business =>
-//                     business.purchasingAgent.nameFirst.includes(keyPressEvent.target.value)
-//                     ||  business.purchasingAgent.nameLast.includes(keyPressEvent.target.value)
-//             );
-
-//             outEl.innerHTML = `
-//                 <h2>
-//                 ${foundBusiness.companyName}
-//                 </h2>
-//                 <section>
-//                 ${foundBusiness.addressFullStreet}
-
-//                 </section>
-//                 <section>
-//                 ${foundBusiness.addressCity},
-//                 ${foundBusiness.addressStateCode}
-//                 ${foundBusiness.addressZipCode}
-//                 </section>
-//                 <section>
-//                 ${foundBusiness.purchasingAgent.nameFirst},
-//                 ${foundBusiness.purchasingAgent.nameLast}
-//                 </section>
-//             `;
-//         }
-//     });
-
-// outEl.innerHTML += "<h1>Purchasing Agents</h1>";
-
-/*
-    Using map(), you extract the purchasing agent object
-    from each business and store it in a new array
-*/
-// const agents = businesses.map(business => {
-//         return {
-//             fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
-//             companyName: business.companyName,
-//             phoneNumber: business.phoneWork
-//         }
-//     })
-
-// console.table(agents)
-
-// agents.forEach(agent => {
-//     outEl.innerHTML += `<h2>${agent.fullName}</h2>`;
-//     outEl.innerHTML += `<h2>${agent.companyName}</h2>`;
-//     outEl.innerHTML += `<h2>${agent.phoneNumber}</h2>`;
-//     outEl.innerHTML += "<hr/>";
-// });
-
-
-// outEl.innerHTML = "<h1>Active Businesses</h1>"
-
-// let zipCodeProperty = "addressZipCode"
-
-// businesses.forEach(business => {
-//   outEl.innerHTML += `
-//     <h2>${business.companyName}</h2>
-//     <section>
-//       ${business.addressFullStreet}
-//     </section>
-//     <section>
-//     ${business.addressCity} ${business["addressStateCode"]} ${business[zipCodeProperty]}
-//     </section>
-//   `
-//   outEl.innerHTML += "<hr/>"
-// });
-
-// Array to contain all the New York businesses
-// const newYorkBusinesses = businesses.filter(business => {
-//     console.log(business.addressStateCode)
-//     let inNewYork = false
-
-//     if (business.addressStateCode === "NY") {
-//         inNewYork = true
-//     }
-
-//     return inNewYork
-//   })
-
-// const newYorkBusinesses = businesses.filter(business =>
-//     business.companyIndustry === "Manufacturing")
-
-
-//   newYorkBusinesses.forEach(business => {
-//   outEl.innerHTML += `
-//     <h2>${business.companyName}</h2>
-//     <section>
-//       ${business.addressFullStreet}
-//     </section>
-//     <section>
-//     ${business.addressCity} ${business["addressStateCode"]} ${business[zipCodeProperty]}
-//     </section>
-//   `
-//   outEl.innerHTML += "<hr/>"
-// });
+  let customerEmalAddresses = customers.map( customer => {
+      return customer.contacts.email.forEach(email => {
+          container.innerHTML += `
+          <p>${email}</p>
+          `
+      })
+  })
